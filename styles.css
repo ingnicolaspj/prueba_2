@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Montserrat', serif;
+}
+
+html::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+  }
+html::-webkit-scrollbar-thumb {
+    background-color: #845B42; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 1.75rem;
+}
+
+html::-webkit-scrollbar-track{
+    background-color: #ccc;
+}
+  
+
+
+@media (max-width:1440px){
+    .nav{
+        width: 100%;
+        background-color: #845B42;
+        padding: .75rem 2rem;
+    }
+    
+    .nav__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav__logo{
+        width: 80px;
+    }
+
+    .nav__menu{
+        display: none;
+    }
+
+    .nav__link{
+        text-decoration: none;
+        color: #fff;
+        margin-right: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .nav__link:hover{
+        text-decoration: underline black;
+    }
+
+     /* Estilos de la portada */
+
+     .header{
+        height: 85vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.786), rgba(0, 0, 0, 0.757)), url("./img/portada.webp");
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 1px;
+        padding-bottom: 2rem;
+        color: #fff;
+    }
+
+    .header__h1,.header__p,.header__cta{
+        filter:brightness(1);
+    }
+
+    .header__h1{
+        font-size: 4rem;
+        margin-top: 6rem;
+        margin-bottom: 2rem;
+    }
+
+    .header__p{
+        font-size: 1.75rem;
+        padding: 0 .75rem;
+        letter-spacing: 5px;
+    }
+
+    .header__cta{
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        margin-top: 1.75rem;
+        background-color: #845B42;
+        padding: 18px 24px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* Estilos parte principal */
+    .main{
+        width: 95%;
+        margin: 2rem auto;
+    }
+    .about__h2{
+        font-size: 2.75rem;
+        text-align: center;
+        text-decoration: 1.5px solid #845B42 underline;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+    }
+
+    .about__p{
+        text-align: justify;
+        line-height: 25px;
+    }
+
+    .about__img{
+        width: 100%;
+    }
+
+    .about__video{
+        width: 100%;
+    }
+    .about__flex{
+        display: flex;
+        align-items: center;
+        gap: 1.75rem;
+    }
+
+    .about__texts,.about__picture{
+        width: 50%;
+    }
+
+
+    /* Beneficios */
+
+    .benefits__article{
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1rem;
+    }
+
+    .benefit__h3{
+        font-size: 1.75rem;
+    }
+
+
+    /* Estilos de footer */
+    .footer{
+        background-color: #845B42;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.75rem 2rem;
+    }
+
+    .footer__h2{
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    .footer__a{
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .footer__a:hover{
+        text-decoration: underline;
+    }
+
+    .footer__social--a{
+        text-decoration: none;
+        filter: invert();
+        margin-right: .75rem;
+    }
+}
+
+@media (max-width:768px) {
+
+    body{
+        width: 100%;
+    }
+    /* Estilos del nav responsivo */
+    .nav{
+        width: 100%;
+        background-color: #845B42;
+    
+        --img1:scale(1);
+        --img2:scale(0); 
+        z-index: 3;
+    }
+
+    .nav__logo{
+        width: 65px;
+    }
+
+    .nav:has(.dropdown:target){
+        --img1:scale(0);
+        --img2:scale(1);
+    }
+    
+    .nav__container{
+        width: 90%;
+        margin: 0 auto;
+        height: 80px;
+    
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-template-areas: "title img";
+        justify-content: space-between;
+        align-items: center;
+    
+        overflow: hidden;
+    }
+    
+    .nav__title{
+        color: #fff;
+        grid-area: title;
+    }
+    
+    .nav__menu{
+        display: block;
+        grid-area: img;
+        position: relative;
+        z-index: 10;
+    
+        transform: var(--img1);
+    }
+    
+    .nav__menu--second{
+        transform: var(--img2);
+    }
+    
+    .nav__icon{
+        width: 30px;
+        display: block;
+    }
+    
+    .dropdown{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: 80px;
+        right: 0;
+        z-index: 2;
+        background-color: #000;
+        display: grid;
+        place-items: center;
+        clip-path: circle(0% at top left);
+        transition: clip-path .4s;
+    }
+    
+    .nav__link{
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    .dropdown:target{
+        clip-path: circle(150% at top left);
+    }
+
+    /* Estilos de la portada */
+
+    .header{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.786), rgba(0, 0, 0, 0.757)), url("./img/portada.webp");
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 1px;
+        padding-bottom: 2rem;
+        color: #fff;
+    }
+
+    .header__h1,.header__p,.header__cta{
+        filter:brightness(1);
+    }
+    .header__h1{
+        font-size: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .header__p{
+        font-size: 1.75rem;
+        padding: 0 .75rem;
+        letter-spacing: 5px;
+    }
+
+    .header__cta{
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        margin-top: 1.75rem;
+        background-color: #845B42;
+        padding: 18px 24px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* Estilos parte principal */
+    .main{
+        width: 95%;
+        margin: 1rem auto;
+    }
+    .about__h2{
+        font-size: 2.75rem;
+        text-align: center;
+        text-decoration: 1.5px solid #845B42 underline;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+    }
+
+    .about__p{
+        text-align: justify;
+        line-height: 25px;
+    }
+
+    .about__img{
+        width: 100%;
+    }
+
+    .about__video{
+        width: 100%;
+    }
+
+    .about__flex{
+        flex-direction: column-reverse;
+    }
+
+    .about__texts,.about__picture{
+        width: 95%;
+    }
+
+    /* Beneficios */
+
+    .benefits__article{
+        text-align: center;
+        
+        display: flex;
+        flex-direction: column;
+    }
+
+    .benfits__container{
+        margin-bottom: 2rem;
+    }
+
+    .benefit__h3{
+        font-size: 2rem;
+    }
+
+    .benefits__p{
+        margin-top: 1.5rem;
+    }
+
+    /* Estilos de footer */
+    .footer{
+        background-color: #845B42;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.75rem 2rem;
+    }
+
+    .footer__h2{
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    .footer__a{
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .footer__a:hover{
+        text-decoration: underline;
+    }
+
+    .footer__social--a{
+        text-decoration: none;
+        filter: invert();
+        margin-right: .75rem;
+    }
+}
+
+@media (max-width:425px) {
+    .header__h1{
+        font-size: 2rem;
+    }
+
+    .footer{
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .footer__a{
+        margin-top: 1rem;
+    }
+
+    .footer__picture{
+        margin-top: 1rem;
+    }
+}
+
